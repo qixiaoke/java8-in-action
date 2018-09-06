@@ -1,6 +1,7 @@
 package chapter1;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -59,9 +60,22 @@ public class MethodReference {
 //        Apple apple = biFunction.apply("green", 120);
 //        System.out.println(apple);
 
-        ThreeFunction<String, Integer, String, ThreeParamApple> t = ThreeParamApple::new;
-        ThreeParamApple apple = t.apply("green", 120, "green apple");
-        System.out.println(apple);
+//        ThreeFunction<String, Integer, String, ThreeParamApple> t = ThreeParamApple::new;
+//        ThreeParamApple apple = t.apply("green", 120, "green apple");
+//        System.out.println(apple);
+
+        // 9
+        apples.sort(new Comparator<Apple>() {
+            @Override
+            public int compare(Apple o1, Apple o2) {
+                return o1.getColor().compareTo(o2.getColor());
+            }
+        });
+
+        apples.sort((o1, o2) -> o1.getColor().compareTo(o2.getColor()));
+
+
+        apples.sort(Comparator.comparing(Apple::getColor));
     }
 
     @FunctionalInterface
