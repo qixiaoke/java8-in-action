@@ -2,6 +2,7 @@ package chapter2;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SimpleStream {
 
@@ -17,8 +18,25 @@ public class SimpleStream {
                 new Dish("prawns", false, 300, Dish.Type.FISH), new Dish("salmon", false, 450, Dish.Type.FISH) );
 
 //        List<String> dishes = getDishName(menu);
-        List<String> dishes = getDiskNameByStreamP(menu);
-        System.out.println(dishes);
+//        List<String> dishes = getDiskNameByStreamP(menu);
+//        System.out.println(dishes);
+
+        // 4 流只能用一次
+//        Stream<Dish> stream = menu.stream();
+//        stream.forEach(System.out::println);
+//        stream.forEach(System.out::println);
+
+        // 5
+//        menu.stream().filter(d -> {
+//            System.out.println("filter => " + d.getName());
+//            return d.getCalories() > 300;
+//        }).map(m -> {
+//            System.out.println("map => " + m.getName());
+//            return m.getName();
+//        }).limit(3).collect(Collectors.toList());
+
+        // 6
+        Stream.of(new Dish("pizza", true, 550, Dish.Type.OTHER)).forEach(System.out::println);
     }
 
     // 1
