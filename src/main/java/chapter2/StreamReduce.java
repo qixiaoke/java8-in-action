@@ -25,5 +25,10 @@ public class StreamReduce {
         // 4
         stream = Arrays.stream(is);
         stream.reduce((i, j) -> i > j ? i : j).ifPresent(System.out::println);
+
+        // 5
+        stream = Arrays.stream(is);
+        stream.reduce(Integer::max).ifPresent(System.out::println);
+
     }
 }
